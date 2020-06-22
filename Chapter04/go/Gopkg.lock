@@ -3,6 +3,27 @@
 
 [[projects]]
   branch = "master"
+  digest = "1:91a6781aa45fd0cd64529b8f77ef3b1e5889be10d21af57623b9787ed3497016"
+  name = "github.com/PacktPublishing/Mastering-Distributed-Tracing"
+  packages = [
+    "Chapter04/go/exercise1/people",
+    "Chapter04/go/exercise2/people",
+    "Chapter04/go/exercise3a/people",
+    "Chapter04/go/exercise3b/people",
+    "Chapter04/go/exercise4a/people",
+    "Chapter04/go/exercise4b/people",
+    "Chapter04/go/exercise5/people",
+    "Chapter04/go/exercise6/othttp",
+    "Chapter04/go/exercise6/people",
+    "Chapter04/go/lib/http",
+    "Chapter04/go/lib/model",
+    "Chapter04/go/lib/tracing",
+  ]
+  pruneopts = ""
+  revision = "e2ef1b6df3a664e64ab1f47843793bf185c9d1d4"
+
+[[projects]]
+  branch = "master"
   digest = "1:c46fd324e7902268373e1b337436a6377c196e2dbd7b35624c6256d29d494e78"
   name = "github.com/codahale/hdrhistogram"
   packages = ["."]
@@ -98,6 +119,18 @@
   analyzer-name = "dep"
   analyzer-version = 1
   input-imports = [
+    "github.com/PacktPublishing/Mastering-Distributed-Tracing/Chapter04/go/exercise1/people",
+    "github.com/PacktPublishing/Mastering-Distributed-Tracing/Chapter04/go/exercise2/people",
+    "github.com/PacktPublishing/Mastering-Distributed-Tracing/Chapter04/go/exercise3a/people",
+    "github.com/PacktPublishing/Mastering-Distributed-Tracing/Chapter04/go/exercise3b/people",
+    "github.com/PacktPublishing/Mastering-Distributed-Tracing/Chapter04/go/exercise4a/people",
+    "github.com/PacktPublishing/Mastering-Distributed-Tracing/Chapter04/go/exercise4b/people",
+    "github.com/PacktPublishing/Mastering-Distributed-Tracing/Chapter04/go/exercise5/people",
+    "github.com/PacktPublishing/Mastering-Distributed-Tracing/Chapter04/go/exercise6/othttp",
+    "github.com/PacktPublishing/Mastering-Distributed-Tracing/Chapter04/go/exercise6/people",
+    "github.com/PacktPublishing/Mastering-Distributed-Tracing/Chapter04/go/lib/http",
+    "github.com/PacktPublishing/Mastering-Distributed-Tracing/Chapter04/go/lib/model",
+    "github.com/PacktPublishing/Mastering-Distributed-Tracing/Chapter04/go/lib/tracing",
     "github.com/go-sql-driver/mysql",
     "github.com/opentracing-contrib/go-stdlib/nethttp",
     "github.com/opentracing/opentracing-go",
