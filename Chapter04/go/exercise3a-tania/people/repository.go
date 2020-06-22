@@ -5,8 +5,9 @@ import (
 	"log"
 
 	_ "github.com/go-sql-driver/mysql"
+	"github.com/opentracing/opentracing-go"
 
-	"github.com/PacktPublishing/Mastering-Distributed-Tracing/Chapter04/go/lib/model"
+	"github.com/Katellification/Mastering-Distributed-Tracing/Chapter04/go/lib/model"
 )
 
 const dburl = "root:mysqlpwd@tcp(127.0.0.1:3306)/chapter04"
@@ -34,8 +35,19 @@ func NewRepository() *Repository {
 // GetPerson tries to find the person in the database by name.
 // If not found, it still returns a Person object with only name
 // field populated.
-func (r *Repository) GetPerson(name string) (model.Person, error) {
+func (r *Repository) GetPerson(name string, span opentracing.Span) (model.Person, error) {
 	query := "select title, description from people where name = ?"
+
+	span = opentracing.GlobalTracer().StartSpan(
+		"get-person",
+		opentracing.ChildOf(span.Context()),
+		opentracing.Tag{
+			Key:   "db.statement",
+			Value: query,
+		},
+	)
+	defer span.Finish()
+
 	rows, err := r.db.Query(query, name)
 	if err != nil {
 		return model.Person{}, err
